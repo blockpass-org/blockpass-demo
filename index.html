@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blockpass Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#E6E6E6">
+    <meta name="msapplication-TileImage" content="/blockpass_demo_assets/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#E6E6E6">
+    <meta name="description" content="Home page">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99834864-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-99834864-5');
+    </script>
+</head>
+
+<body>
+    <!-- BLOCKPASS WIDGET SCRIPT -->
+    <script>
+        (function () {
+            const s = document.createElement('script');
+            s.src = 'assets/embedded.prod.js'; s.async = true;
+            window.bpWidget = {
+                env: 'prod',
+                clientId: 'blockpass_sales_demo',
+                serviceName: 'Blockpass',
+                refId: Date.now(),
+                onSSOComplete: (result, resetFunc) => {
+                    console.log('sso-complete', result)
+                    $('#blockpass-connect-button').fadeOut(0, function() {
+                        $('#instructions').fadeOut(500, function() {})
+                        $('#welcome').fadeIn(500, function() {})
+                    })
+                }
+            };
+            document.body.appendChild(s);
+        })();
+    </script>
+    <section style="background-color: #fff;">
+        <div style="background-color: #E6E6E6;text-align: center">
+            <div class="container" style="position:relative;">
+                <div class="row">
+                    <div class="content-size text-xs-center">
+                        <img src="assets/images/logo-blockpass-foundation.png" class="main-logo" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="content-size text-xs-center">
+                        <p class="main-title">Blockpass Demo</p>
+                    </div>
+                </div>
+                <div class="hidden-sm-down" style="top:50px;left:25%;position:absolute;width:15px;height:15px;background-color:black;"></div>
+                <div class="hidden-sm-down" style="top:80px;right:34%;position:absolute;width:8px;height:8px;background-color:black;"></div>
+                <div class="hidden-sm-down" style="bottom:125px;left:38%;position:absolute;width:8px;height:8px;background-color:black;"></div>
+                <div class="hidden-sm-down" style="bottom:115px;right:25%;position:absolute;width:15px;height:15px;background-color:black;"></div>
+                <div class="hidden-sm-down" style="bottom:35px;left:15%;position:absolute;width:8px;height:8px;background-color:black;"></div>
+                <div class="hidden-sm-down" style="bottom:25px;left:75%;position:absolute;width:8px;height:8px;background-color:black;"></div>
+            </div>
+
+            <div class="container">
+                <div style="text-align:center">
+                    <div id="blockpass-connect-button"></div>
+                </div>
+
+                <div style="text-align:center; display:none;background-color:transparent" id="welcome">
+                    <div class="container-form">
+                        <div class="container-form-inner">
+                            <p class="name-container" id="welcome">Done!</p>
+                            <p>Thanks for using Blockpass, your registration is successful. 
+                                <br /> Watch out for notifications on your phone for the next steps of the process.
+                            </p>
+
+                            <p style="font-weight:bold; font-size:20px;clear:both;">Join our Telegram group</p>
+                            <a class="_2kgOa" href="https://t.me/blockpass" target="_blank" data-reactid="350">
+                                <img src="assets/images/e9489302.svg" alt="Join Blockpass Telegram group" style="width:50px;margin-bottom:20px;">
+                            </a>
+                        </div>
+                        <div class="black-square stop-left "></div>
+                        <div class="black-square stop-right "></div>
+                        <div class="black-square sbottom-left "></div>
+                        <div class="black-square sbottom-right "></div>
+                    </div>
+                </div>
+                <div><p>&nbsp;</p></div>
+            </div>
+        </div>
+
+        <div class="container" id="instructions">
+            <div class="row">
+                <div class="content-size text-xs-center">
+                    <p class="main-subtitle1">USER INSTRUCTIONS</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-xs-center">
+                    <img src="assets/images/arrow.png" class="top-icon" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-xs-center" style="padding-top:20px;">
+                    <p class="step-number hidden-sm-down" style="font-size:30px">1.</p>
+                    <p class="icon-sub" style="margin-bottom:0; font-size:14px">Download Blockpass mobile app</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 content-size text-xs-center">
+                </div>
+                <div class="col-md-4 content-size text-xs-center">
+                    <p>
+                        <a href="https://itunes.apple.com/us/app/blockpass/id1322917010?ls=1&mt=8" target="_blank">
+                            <img src="assets/images/apple.png" class="store-icon" />
+                            <br /> iPhone app
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-4 content-size text-xs-center">
+                    <p>
+                        <a href="https://play.google.com/store/apps/details?id=com.blockpass_mobile" target="_blank">
+                            <img src="assets/images/android.png" class="store-icon" style="margin-left: -7px;" />
+                            <br /> Android app
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                </div>
+            </div>
+            <div class="row hidden-sm-down text-xs-center">
+                <div class="col-md-1 content-size text-xs-center">
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                    <img src="assets/images/2.png" class="main-icon" />
+                    <p class="step-number">2.</p>
+                    <p class="icon-sub">Create your identity</p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                    <img src="assets/images/3.png" class="main-icon" />
+                    <p class="step-number">3.</p>
+                    <p class="icon-sub">Submit your info</p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                    <img src="assets/images/4.png" class="main-icon" />
+                    <p class="step-number">4.</p>
+                    <p class="icon-sub">Click Connect with Blockpass</p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                    <img src="assets/images/5.png" class="main-icon" />
+                    <p class="step-number">5.</p>
+                    <p class="icon-sub">Scan the QR Code with app</p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                    <img src="assets/images/6.png" class="main-icon" />
+                    <p class="step-number">6.</p>
+                    <p class="icon-sub">Confirm registration in app</p>
+                </div>
+                <div class="col-md-2 content-size text-xs-center">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="" style="background-color:#fff;padding-top:30px;text-align: center;">
+        <div class="container footer-text">
+            <p>info@blockpass.org
+                <br /> Copyright 2018 Blockpass - All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
