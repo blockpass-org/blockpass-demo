@@ -36,21 +36,51 @@
         gtag('js', new Date());
         gtag('config', 'UA-99834864-5');
     </script>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                if (decodeURIComponent(pair[0]) == variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            //console.log('Query variable %s not found', variable);
+        }
+    </script>
 </head>
 
 <body>
     <!-- BLOCKPASS WIDGET SCRIPT -->
     <script>
         (function () {
+
+            const clientId = getQueryVariable('clientId') || 'blockpass_sales_demo';
+            const serviceName = getQueryVariable('serviceName') || 'Blockpass';
+            const refId = getQueryVariable('refId') || 'rdm-' + Date.now();
+            const env = getQueryVariable('env') || 'prod';
+            //console.log(clientId, env);
+
+            document.body.onload = function () {
+                document.getElementById('service-name').innerHTML = serviceName;
+                document.getElementById('env').innerHTML = env;
+                if (env == 'staging') {
+                    document.getElementById('ios').setAttribute('href', 'https://testflight.apple.com/join/JavudHsa');
+                    document.getElementById('android').setAttribute('href', 'https://play.google.com/apps/testing/com.blockpass_mobile.staging ');
+                }
+            }
+
             const s = document.createElement('script');
             s.src = 'assets/embedded.prod.js'; s.async = true;
             window.bpWidget = {
-                env: 'prod',
-                clientId: 'blockpass_sales_demo',
+                env,
+                clientId,
                 serviceName: 'Blockpass',
-                refId: Date.now(),
+                refId,
                 onSSOComplete: (result, resetFunc) => {
-                    console.log('sso-complete', result)
+                    //console.log('sso-complete', result)
                     $('#blockpass-connect-button').fadeOut(0, function() {
                         $('#instructions').fadeOut(500, function() {})
                         $('#welcome').fadeIn(500, function() {})
@@ -70,7 +100,8 @@
                 </div>
                 <div class="row">
                     <div class="content-size text-xs-center">
-                        <p class="main-title">Blockpass Demo</p>
+                        <p class="main-title"><span id="service-name">Blockpass</span> Demo</p>
+                        <div class="environment">Environment: <span id="env">prod</span></div>                        
                     </div>
                 </div>
                 <div class="hidden-sm-down" style="top:50px;left:25%;position:absolute;width:15px;height:15px;background-color:black;"></div>
@@ -131,7 +162,7 @@
                 </div>
                 <div class="col-md-4 content-size text-xs-center">
                     <p>
-                        <a href="https://itunes.apple.com/us/app/blockpass/id1322917010?ls=1&mt=8" target="_blank">
+                        <a id="ios" href="https://itunes.apple.com/us/app/blockpass/id1322917010?ls=1&mt=8" target="_blank">
                             <img src="assets/images/apple.png" class="store-icon" />
                             <br /> iPhone app
                         </a>
@@ -139,7 +170,7 @@
                 </div>
                 <div class="col-md-4 content-size text-xs-center">
                     <p>
-                        <a href="https://play.google.com/store/apps/details?id=com.blockpass_mobile" target="_blank">
+                        <a id="android" href="https://play.google.com/store/apps/details?id=com.blockpass_mobile" target="_blank">
                             <img src="assets/images/android.png" class="store-icon" style="margin-left: -7px;" />
                             <br /> Android app
                         </a>
