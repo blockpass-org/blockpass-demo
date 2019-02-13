@@ -18,6 +18,11 @@
     margin-left: 30px;
     margin-right: 30px;
 }
+#service-name {
+    max-width: 700px;
+    display: block;
+    margin: auto;
+}
 
 .main-subtitle1 {
     font-size: 18px;
