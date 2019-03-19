@@ -63,6 +63,9 @@
             const env = getQueryVariable('env') || 'prod';
             //console.log(clientId, env);
 
+            var appSchema = (env == 'prod') ? "blockpass" : "blockpass-" + env;
+            var deepLink = appSchema + "://service-register/" + clientId + "?refid=" + refId;
+
             document.body.onload = function () {
                 document.getElementById('service-name').innerHTML = serviceName;
                 document.getElementById('env').innerHTML = env;
@@ -70,6 +73,8 @@
                     document.getElementById('ios').setAttribute('href', 'https://testflight.apple.com/join/JavudHsa');
                     document.getElementById('android').setAttribute('href', 'https://play.google.com/apps/testing/com.blockpass_mobile.staging ');
                 }
+                document.getElementById('blockpass-app-link').href = deepLink;
+
             }
 
             const s = document.createElement('script');
@@ -115,9 +120,16 @@
             <div class="container">
                 <div style="text-align:center">
                     <div id="blockpass-connect-button"></div>
+
+                    <div class="mobile-user-only"">
+                        <p>It seems that your are using a phone...<br /> 
+                        Do you have Blockpass mobile app already installed?</p>
+                        <p><a href="#" id="blockpass-app-link">Click here to launch the app and register</a></p>
+                    </div>
+
                 </div>
 
-                <div style="text-align:center; display:none;background-color:transparent" id="welcome">
+                <div style="text-align:center; display:none; background-color:transparent" id="welcome">
                     <div class="container-form">
                         <div class="container-form-inner">
                             <p class="name-container" id="welcome">Done!</p>

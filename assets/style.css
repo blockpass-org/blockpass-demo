@@ -141,11 +141,23 @@
     font-size: 45px;
     text-align: center;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .footer-text {
     font-size: 12px;
+}
+
+.mobile-user-only{
+    display: none;
+}
+
+#blockpass-app-link {
+    display: inline-block;
+    color:black;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px
 }
 
 /* Responsive */
@@ -162,5 +174,8 @@
         width: 40px;
         height: 40px;
         background-color: black;
+    }
+    .mobile-user-only{
+        display: block;
     }
 }
