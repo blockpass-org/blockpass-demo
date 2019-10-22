@@ -1,0 +1,257 @@
+html, body {
+    background-color: transparent ;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-color:rgba(0,0,0,0.3) !important;
+}
+
+a, a:hover {
+    color:black;
+    text-decoration: underline;
+}
+a:hover, a:visited {
+    color:gray;
+}
+.row,
+.container {
+    /* max-width: 930px !important; */
+    text-align: center;
+}
+
+.container-form {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    background-color: #fff;
+    font-family: "Helvetica Neue", Arial;
+    padding: 10px;
+    min-width: 310px;
+    font-family: "Helvetica Neue", "Arial";
+    font-size: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    margin-top:50px;
+  }
+
+
+  .qrcode {
+    text-align: center;
+    width: 290px;
+    height: 290px;
+    margin: 5px auto;
+    position: absolute;
+    top:5px;
+    right:0;
+    left:0
+  }
+
+  #welcome-container {
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+    padding: 15px
+  }
+
+.mobile-user-only{
+    display: none;
+    padding: 10px;
+}
+
+#blockpass-app-link {
+    display: inline-block;
+    color:black;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.close-section{
+    padding: 10px;
+    cursor: pointer;
+    color:#ccc;
+}
+.close-section:hover{
+    color:black;
+}
+
+hr {
+    margin-bottom: 15px;
+    border: 0.5px solid #ccc;
+}
+
+#close-onboarding {
+    display:none;
+}
+
+/* Loading animation */
+.bpLogoPlaceholder {
+    width: 20px;
+    height: 20px;
+    left: -10px;
+    position: relative;
+    margin: 100px auto;
+    overflow: visible
+  }
+
+  .bpSquare {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #222;
+    overflow: visible;
+    opacity: .2
+  }
+
+  .bpSquare0 {
+    opacity: 1;
+    animation: spin 2s infinite;
+    transform-origin: 50%;
+    animation-fill-mode: backwards !important
+  }
+
+  .bpSquare1 {
+    left: 110%;
+    animation: flipXRight1 2s infinite;
+    transform-origin: left
+  }
+
+  .bpSquare2 {
+    left: 220%;
+    animation: flipXRight2 2s infinite;
+    transform-origin: left
+  }
+
+  .bpSquare3 {
+    left: 110%;
+    top: 110%;
+    animation: flipYBottom 2s infinite;
+    transform-origin: top
+  }
+
+  .bpSquare4 {
+    left: -110%;
+    animation: flipXLeft 2s infinite;
+    transform-origin: right
+  }
+
+  .bpSquare5 {
+    left: -110%;
+    top: -110%;
+    animation: flipYTop 2s infinite;
+    transform-origin: bottom
+  }
+
+  @keyframes flipYBottom {
+
+    0%,
+    100%,
+    25%,
+    75% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -90deg)
+    }
+
+    45%,
+    55% {
+      transform: perspective(400px);
+      opacity: 1
+    }
+  }
+
+  @keyframes flipYTop {
+
+    0%,
+    100%,
+    30%,
+    75% {
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg)
+    }
+
+    50%,
+    65% {
+      transform: perspective(400px);
+      opacity: 1
+    }
+  }
+
+  @keyframes flipXLeft {
+
+    0%,
+    100% {
+      transform: perspective(400px) rotate3d(0, 1, 0, -90deg)
+    }
+
+    25%,
+    85% {
+      transform: perspective(400px);
+      opacity: 1
+    }
+  }
+
+  @keyframes flipXRight1 {
+
+    0%,
+    100% {
+      transform: perspective(400px) rotate3d(0, 1, 0, 90deg)
+    }
+
+    20%,
+    70% {
+      transform: perspective(400px);
+      opacity: 1
+    }
+  }
+
+  @keyframes flipXRight2 {
+
+    0%,
+    10%,
+    100%,
+    70% {
+      transform: perspective(400px) rotate3d(0, 1, 0, 90deg)
+    }
+
+    30%,
+    50% {
+      transform: perspective(400px);
+      opacity: 1
+    }
+  }
+
+  @keyframes spin {
+
+    0%,
+    94% {
+      transform: rotateX(0)
+    }
+
+    100% {
+      transform: rotate(90deg)
+    }
+  }
+/* End loading animation */
+
+
+/* Responsive */
+
+@media (max-width: 615px) {
+    .mobile-user-only{
+        display: block;
+    }
+}
+
+@media (max-width: 350px) {
+    .container-form{
+        padding: 0px;
+        min-width: 290px;
+        margin-top:25px;
+    }
+    .qrcode{
+        margin:0;
+        top:0px;
+    }
+}
+

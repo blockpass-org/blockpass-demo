@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Blockpass Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="widget-assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="widget-assets/images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="widget-assets/images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="widget-assets/images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="widget-assets/images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="widget-assets/images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="widget-assets/images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="widget-assets/images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="widget-assets/images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="widget-assets/images/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="widget-assets/images/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="widget-assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="widget-assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="widget-assets/images/favicon-16x16.png">
+  <link rel="manifest" href="widget-assets/images/manifest.json">
+  <meta name="msapplication-TileColor" content="#E6E6E6">
+  <meta name="msapplication-TileImage" content="/widget-assets/images/ms-icon-144x144.png">
+  <meta name="theme-color" content="#E6E6E6">
+  <meta name="description" content="Home page">
+  <link rel="stylesheet" href="widget-assets/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="widget-assets/style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99834864-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-99834864-5');
+  </script>
+
+  <script>
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split('&');
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+          return decodeURIComponent(pair[1]);
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!-- BLOCKPASS WIDGET SCRIPT -->
+  <script>
+    (function () {
+      const clientId = getQueryVariable('clientId') || 'blockpass_sales_demo';
+      const refId = getQueryVariable('refId') || 'r-' + Date.now();
+      const env = getQueryVariable('env') || 'prod';
+
+      var appSchema = (env == 'prod') ? "blockpass" : "blockpass-" + env;
+      var deepLink = appSchema + "://service-register/" + clientId + "?refid=" + refId;
+
+      document.body.onload = function () {
+        document.getElementById('blockpass-app-link').href = deepLink;
+      }
+
+      const s = document.createElement('script');
+      // s.src = 'scripts/embedded.dev.js'; s.async = true;
+      s.src = 'build/embedded.prod.js'; s.async = true;
+      window.bpWidget = {
+        env,
+        clientId,
+        serviceName: 'Blockpass',
+        refId,
+        onSSOComplete: (result, resetFunc) => {
+          // Notify parent that data have been sent successfully
+          window.parent.postMessage("KYCConnectSuccess", "*");
+        }
+      };
+
+      document.body.appendChild(s);
+    })();
+  </script>
+  <section>
+    <div class="container">
+      <!-- Button -->
+      <div id="blockpass-connect-button">
+        <div class=container-form>
+
+          <div id=container-qrcode>
+              <div style=width:290px;height:290px;padding-top:10px;>
+                  <div class=bpLogoPlaceholder>
+                    <div class="bpSquare bpSquare0"></div>
+                    <div class="bpSquare bpSquare1"></div>
+                    <div class="bpSquare bpSquare2"></div>
+                    <div class="bpSquare bpSquare3"></div>
+                    <div class="bpSquare bpSquare4"></div>
+                    <div class="bpSquare bpSquare5"></div>
+                  </div>
+                </div>              
+            <div class=qrcode>            
+                <canvas height=290 id=qrcode width=290></canvas>
+            </div>
+            <div>Scan this qr-code with your<br> <a href=https://www.blockpass.org title="Go to blockpass.org website"
+                target="_blank">Blockpass</a> mobile application to connect</div>
+          </div>
+
+          <div id=welcome-container style=display:none;background-color:transparent>
+            <p>Successfully registered!</p>
+            <p>Check the status of your registration <br/>in your mobile application</p>
+          </div>
+
+          <div id=loadingComponents style=display:none>
+            <div style=width:290px;height:290px;padding-top:10px>
+              <div class=bpLogoPlaceholder>
+                <div class="bpSquare bpSquare0"></div>
+                <div class="bpSquare bpSquare1"></div>
+                <div class="bpSquare bpSquare2"></div>
+                <div class="bpSquare bpSquare3"></div>
+                <div class="bpSquare bpSquare4"></div>
+                <div class="bpSquare bpSquare5"></div>
+              </div>
+              <p>Follow the instructions on your phone<br>to continue your registration
+            </div>
+          </div>
+
+          <div class="mobile-user-only">
+            <hr/>
+            <p>Using a phone?<br />
+              If you have the Blockpass mobile app already installed:</p>
+            <a href="#" id="blockpass-app-link">Launch the app and register</a>
+          </div>
+
+          <div id="cancel-onboarding" class="close-section">
+            <hr/>
+            Cancel
+          </div>
+          <div id="close-onboarding" class="close-section">
+            <hr/>
+            Close
+          </div>          
+
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
