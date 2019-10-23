@@ -2,21 +2,47 @@
 .container {
     max-width: 930px !important;
 }
+html {
+    background-color: #488cff;
+}
+#blockpass-kyc-connect{
+    width: auto;
+    background-color: #488cff;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    line-height: 32px;
+    cursor: pointer;
+    border: 0;
+    margin: 60px auto;
+    padding: 15px;
+}
+#blockpass-kyc-connect img {
+    margin-right: 10px;
+    display: inline;
+}
+a, a:hover, a:visited{
+    color:#488cff !important;
+}
 
 .main-logo {
     margin-top: 22px;
-    width: 135px;
+    width: 80px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 30px;
 }
 
 .main-title {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     line-height: 60px;
     margin-left: 30px;
     margin-right: 30px;
+    color: white;
+    margin-bottom: 20px;
 }
 #service-name {
     max-width: 700px;
@@ -50,23 +76,33 @@
 }
 
 .store-icon {
-    width: 35px;
-    margin: 20px 0 5px 0;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    width:150px;
 }
 
 .main-icon {
-    margin-bottom: -35px;
-    width: 100%;
+    margin-bottom: -20px;
+    width: 70px;
+    float: left;
+    
 }
 
 .icon-sub {
     font-size: 12px;
-    margin-bottom: 42px;
+    margin-bottom: 10px;
+    text-align: left;
+    height: 70px;
+    padding-top: 17px;
 }
 
 .step-number {
     font-size: 30px;
     margin-bottom: 0;
+    border-bottom: 2px solid black;
+    width: 35px;
+    margin: 0 20px -10px;
+    text-align: left;
 }
 
 
@@ -85,7 +121,7 @@
 
 .container-form-inner {
     position: relative;
-    background-color: white;
+    background-color:#eee;
     z-index: 10;
     margin: auto;
     padding: 15px;
@@ -160,11 +196,16 @@
     padding: 10px
 }
 
+#welcome {
+    text-align:center; 
+    display:none; 
+    background-color:transparent;
+}
 /* Responsive */
 
 @media (max-width: 615px) {
     .main-title {
-        font-size: 35px;
+        font-size: 20px;
     }
     .name-container {
         font-size: 30px;
