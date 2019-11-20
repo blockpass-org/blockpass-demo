@@ -53,65 +53,7 @@
 </head>
 
 <body>
-    <!-- BLOCKPASS WIDGET SCRIPT -->
-    <script>
-        (function () {
 
-            const clientId = getQueryVariable('clientId') || 'blockpass_sales_demo';
-            const serviceName = getQueryVariable('serviceName') || 'Blockpass';
-            const refId = getQueryVariable('refId') || 'rdm-' + Date.now();
-            const env = getQueryVariable('env') || 'prod';
-            //console.log(clientId, env);
-
-            var appSchema = (env == 'prod') ? "blockpass" : "blockpass-" + env;
-            var deepLink = appSchema + "://service-register/" + clientId + "?refid=" + refId;
-
-            document.body.onload = function () {
-                document.getElementById('service-name').innerHTML = serviceName;
-                // document.getElementById('env').innerHTML = env;
-                if (env == 'staging') {
-                    document.getElementById('ios').setAttribute('href', 'https://testflight.apple.com/join/JavudHsa');
-                    document.getElementById('android').setAttribute('href', 'https://play.google.com/apps/testing/com.blockpass_mobile.staging ');
-                }
-                var welcome = document.getElementById('welcome');
-
-                // WIDGET 2.0.0
-                const blockpass = new BlockpassKYCConnect(
-                    clientId, //service client_id from the admin console
-                    {
-                        env: env, //staging or prod. default: prod
-                        local_user_id: refId //assign the local user_id of the connected user
-                    })
-
-                blockpass.startKYCConnect()
-
-                blockpass.on('KYCConnectSuccess', () => {
-                    //welcome.setAttribute('style', 'display:block')
-                })
-            }
-
-
-            // const s = document.createElement('script');
-            // s.src = 'assets/embedded.prod.js'; s.async = true;
-            // window.bpWidget = {
-            //     env,
-            //     clientId,
-            //     serviceName: 'Blockpass',
-            //     refId,
-            //     onSSOComplete: (result, resetFunc) => {
-            //         //console.log('sso-complete', result)
-            //         $('#blockpass-connect-button').fadeOut(0, function() {
-            //             $('#instructions').fadeOut(500, function() {})
-            //             $('#welcome').fadeIn(500, function() {})
-            //         })
-            //     }
-            // };
-            // document.body.appendChild(s);
-
-
-
-        })();
-    </script>
     <section style="background-color: #488cff;">
         <div style="text-align: center">
             <div class="container" style="position:relative;">
@@ -122,7 +64,7 @@
                 </div>
                 <div class="row">
                     <div class="content-size text-xs-center">
-                        <p class="main-title"><span id="service-name">Blockpass</span></p>
+                        <p class="main-title"><span id="service-name">&nbsp;</span></p>
                         <!-- <div class="environment">Environment: <span id="env">prod</span></div>                         -->
                     </div>
                 </div>
@@ -192,7 +134,7 @@
                 <div class="col-md-3 content-size text-xs-center">
                     </div>
                 <div class="col-md-3 text-xs-center">
-                    <p class="step-number hidden-sm-down" style="font-size:30px">1</p>
+                    <p class="step-number hidden-sm-down">1</p>
                     <p class="icon-sub hidden-sm-down" style="height: auto;margin-left:20px;margin-bottom: 10px;">
                         Download Blockpass mobile app                        
                     </p>
@@ -254,6 +196,66 @@
                 <br /> Copyright 2019 Blockpass - All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- BLOCKPASS WIDGET SCRIPT -->
+    <script>
+        (function () {
+
+            const clientId = getQueryVariable('clientId') || 'blockpass_sales_demo';
+            const serviceName = getQueryVariable('serviceName') || 'Blockpass';
+            const refId = getQueryVariable('refId') || 'rdm-' + Date.now();
+            const env = getQueryVariable('env') || 'prod';
+            //console.log(clientId, env);
+
+            var appSchema = (env == 'prod') ? "blockpass" : "blockpass-" + env;
+            var deepLink = appSchema + "://service-register/" + clientId + "?refid=" + refId;
+
+            document.body.onload = function () {
+                document.getElementById('service-name').innerHTML = serviceName;
+                // document.getElementById('env').innerHTML = env;
+                if (env == 'staging') {
+                    document.getElementById('ios').setAttribute('href', 'https://testflight.apple.com/join/JavudHsa');
+                    document.getElementById('android').setAttribute('href', 'https://play.google.com/apps/testing/com.blockpass_mobile.staging ');
+                }
+                var welcome = document.getElementById('welcome');
+
+                // WIDGET 2.0.0
+                const blockpass = new BlockpassKYCConnect(
+                    clientId, //service client_id from the admin console
+                    {
+                        env: env, //staging or prod. default: prod
+                        local_user_id: refId //assign the local user_id of the connected user
+                    })
+
+                blockpass.startKYCConnect()
+
+                blockpass.on('KYCConnectSuccess', () => {
+                    //welcome.setAttribute('style', 'display:block')
+                })
+            }
+
+
+            // const s = document.createElement('script');
+            // s.src = 'assets/embedded.prod.js'; s.async = true;
+            // window.bpWidget = {
+            //     env,
+            //     clientId,
+            //     serviceName: 'Blockpass',
+            //     refId,
+            //     onSSOComplete: (result, resetFunc) => {
+            //         //console.log('sso-complete', result)
+            //         $('#blockpass-connect-button').fadeOut(0, function() {
+            //             $('#instructions').fadeOut(500, function() {})
+            //             $('#welcome').fadeIn(500, function() {})
+            //         })
+            //     }
+            // };
+            // document.body.appendChild(s);
+
+
+
+        })();
+    </script>    
 </body>
 
 </html>

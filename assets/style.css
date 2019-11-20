@@ -97,12 +97,13 @@ a, a:hover, a:visited{
 }
 
 .step-number {
-    font-size: 30px;
+    font-size: 12px;
     margin-bottom: 0;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     width: 35px;
     margin: 0 20px -10px;
     text-align: left;
+    padding-left: 6px;
 }
 
 
