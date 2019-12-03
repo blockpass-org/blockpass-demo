@@ -25,8 +25,7 @@
   <meta name="msapplication-TileColor" content="#E6E6E6">
   <meta name="msapplication-TileImage" content="/widget-assets/images/ms-icon-144x144.png">
   <meta name="theme-color" content="#E6E6E6">
-  <meta name="description" content="Home page">
-  <link rel="stylesheet" href="widget-assets/bootstrap-grid.min.css">
+  <meta name="description" content="Blockpass QR code widget">
   <link rel="stylesheet" href="widget-assets/style.css">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -91,7 +90,7 @@
         <div class=container-form>
 
           <div id=container-qrcode>
-              <div style=width:290px;height:290px;padding-top:10px;>
+              <div style=height:290px;padding-top:10px;>
                   <div class=bpLogoPlaceholder>
                     <div class="bpSquare bpSquare0"></div>
                     <div class="bpSquare bpSquare1"></div>
@@ -104,7 +103,7 @@
             <div class=qrcode>            
                 <canvas height=290 id=qrcode width=290></canvas>
             </div>
-            <div>Scan this qr-code with your<br> <a href=https://www.blockpass.org/individuals title="Go to blockpass.org website"
+            <div>Scan this QR-code with your<br> <a href=https://www.blockpass.org/individuals title="Go to blockpass.org website"
                 target="_blank">Blockpass</a> mobile application to connect</div>
           </div>
 
@@ -114,7 +113,7 @@
           </div>
 
           <div id=loadingComponents style=display:none>
-            <div style=width:290px;height:290px;padding-top:10px>
+            <div style=padding-top:68px>
               <div class=bpLogoPlaceholder>
                 <div class="bpSquare bpSquare0"></div>
                 <div class="bpSquare bpSquare1"></div>
@@ -131,7 +130,7 @@
             <hr/>
             <p>Using a phone?<br />
               If you have the Blockpass mobile app already installed:</p>
-            <a href="#" id="blockpass-app-link">Launch the app and register</a>
+            <a href="#" id="blockpass-app-link" target="_top">Launch the app and register</a>
           </div>
 
           <div id="cancel-onboarding" class="close-section">

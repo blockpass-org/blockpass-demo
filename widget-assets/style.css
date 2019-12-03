@@ -22,37 +22,37 @@ a:hover, a:visited {
 }
 
 .container-form {
-    position: relative;
-    display: inline-block;
-    margin: auto;
-    background-color: #fff;
-    font-family: "Helvetica Neue", Arial;
-    padding: 10px;
-    min-width: 310px;
-    font-family: "Helvetica Neue", "Arial";
-    font-size: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    margin-top:50px;
-  }
+  position: relative;
+  margin: auto;
+  background-color: #fff;
+  font-family: "Helvetica Neue", Arial;
+  padding: 10px;
+  min-width: 290px;
+  font-family: "Helvetica Neue", "Arial";
+  font-size: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  margin-top: 50px;
+  width: 290px;
+  border-radius: 5px;
+}
 
+.qrcode {
+  text-align: center;
+  width: 290px;
+  height: 290px;
+  margin: 5px auto;
+  position: absolute;
+  top:5px;
+  right:0;
+  left:0
+}
 
-  .qrcode {
-    text-align: center;
-    width: 290px;
-    height: 290px;
-    margin: 5px auto;
-    position: absolute;
-    top:5px;
-    right:0;
-    left:0
-  }
-
-  #welcome-container {
-    background-color: #fff;
-    position: relative;
-    z-index: 10;
-    padding: 15px
-  }
+#welcome-container {
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+  padding: 15px
+}
 
 .mobile-user-only{
     display: none;
